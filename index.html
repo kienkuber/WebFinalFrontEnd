@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-init="countries = [{locale:'en-vn', ten:'vn'}]">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+    <!--import dau tien-->
+    <!--tweenmax phụ thuộc vào jquery-->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">CỔNG ĐÁNH GIÁ RÈN LUYỆN</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li ng-hide = "showLogin"><a ui-sref="login">Login</a></li>
+            <li ng-show = "showSetScore"><a ui-sref="setscore">Set Score</a></li>
+            <li ng-show = "showViewScore"><a ui-sref="viewscore">View Score</a></li>
+            <li ng-show = "showTeacher"><a ui-sref="teacher">View Score</a></li>
+            <li ng-show = "showLogOut"><a ui-sref="login" ng-click="dangxuat()"> Log Out</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div ui-view>
+
+</div>
+</body>
+<!--route-->
+<script src="app.js"></script>
+<!--<script src="modules/book/book.js"></script>-->
+<script src="modules/login/login.js"></script>
+<script src="modules/setscore/setscore.js"></script>
+<script src="modules/viewscore/viewscore.js"></script>
+<script src="modules/teacher/teacher.js"></script>
+
+<!--controller-->
+<!--<script src="modules/book/bookCtrl.js"></script>-->
+<script src="modules/login/loginCtrl.js"></script>
+<script src="modules/setscore/setscoreCtrl.js"></script>
+<script src="modules/viewscore/viewscoreCtrl.js"></script>
+<script src="modules/teacher/teacherCtrl.js"></script>
+<!--service -->
+<!--<script src="modules/book/bookService.js"></script>-->
+<script src="modules/login/loginService.js"></script>
+<script src="modules/setscore/setscoreService.js"></script>
+<script src="modules/viewscore/viewscoreService.js"></script>
+<script src="modules/teacher/teacherService.js"></script>
+</html>
