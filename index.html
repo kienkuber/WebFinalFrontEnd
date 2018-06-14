@@ -21,13 +21,16 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">CỔNG ĐÁNH GIÁ RÈN LUYỆN</a>
+            <a class="navbar-brand" href="#">TRANG QUẢN LÝ THỰC TẬP</a>
         </div>
         <ul class="nav navbar-nav">
             <li ng-hide = "showLogin"><a ui-sref="login">Login</a></li>
-            <li ng-show = "showSetScore"><a ui-sref="setscore">Set Score</a></li>
-            <li ng-show = "showViewScore"><a ui-sref="viewscore">View Score</a></li>
-            <li ng-show = "showTeacher"><a ui-sref="teacher">View Score</a></li>
+            <li ng-show = "showCreate"><a ui-sref="createuser">Create</a></li>
+            <li ng-show = "showViewUser"><a ui-sref="viewuser">View Users</a></li>
+            <li ng-show = "showUpdateInfo"><a ui-sref="viewscore">Update Info</a></li>
+            <li ng-show = "showSeason"><a ui-sref="teacher">Season</a></li>
+            <li ng-show = "showCreateJob"><a ui-sref="createjob">Create Job</a></li>
+            <li ng-show = "showViewJob"><a ui-sref="viewjob">View Job</a></li>
             <li ng-show = "showLogOut"><a ui-sref="login" ng-click="dangxuat()"> Log Out</a></li>
         </ul>
     </div>
@@ -41,20 +44,22 @@
 <script src="app.js"></script>
 <!--<script src="modules/book/book.js"></script>-->
 <script src="modules/login/login.js"></script>
-<script src="modules/setscore/setscore.js"></script>
-<script src="modules/viewscore/viewscore.js"></script>
-<script src="modules/teacher/teacher.js"></script>
+<script src="modules/createuser/createuser.js"></script>
+<script src="modules/viewuser/viewuser.js"></script>
+<script src="modules/createjob/createjob.js"></script>
+
 
 <!--controller-->
 <!--<script src="modules/book/bookCtrl.js"></script>-->
 <script src="modules/login/loginCtrl.js"></script>
-<script src="modules/setscore/setscoreCtrl.js"></script>
-<script src="modules/viewscore/viewscoreCtrl.js"></script>
-<script src="modules/teacher/teacherCtrl.js"></script>
+<script src="modules/createuser/createuserCtrl.js"></script>
+<script src="modules/viewuser/viewuserCtrl.js"></script>
+<script src="modules/createjob/createjobCtrl.js"></script>
+
 <!--service -->
 <!--<script src="modules/book/bookService.js"></script>-->
 <script src="modules/login/loginService.js"></script>
-<script src="modules/setscore/setscoreService.js"></script>
-<script src="modules/viewscore/viewscoreService.js"></script>
-<script src="modules/teacher/teacherService.js"></script>
+<script src="modules/createuser/createuserService.js"></script>
+<script src="modules/viewuser/viewuserService.js"></script>
+<script src="modules/createjob/createjobService.js"></script>
 </html>

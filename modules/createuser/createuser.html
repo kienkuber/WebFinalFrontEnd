@@ -1,0 +1,53 @@
+<body>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 col-lg-3">
+            <a href="" ng-click="showStudent()">Create Student</a><br>
+            <a href="" ng-click="showLecturer()">Create Lecturer</a><br>
+            <a href="" ng-click="showPartner()">Create Partner</a>
+        </div>
+
+        <div class="col-xs-9 col-sm-9 col-lg-9">
+            <div ng-hide="hienStudent">
+            <form>
+                <label for="1">Mã số sinh viên:        </label><input id="1" type="text" ng-model="student.mssv"><br>
+                <label for="2">Tên lớp:                </label><input id="2" type="text" ng-model="student.classroom"><br>
+                <label for="3">Khóa:                   </label><input id="3" type="text" ng-model="student.gen"><br>
+                <label for="4">Ngành học:              </label><input id="4" type="text" ng-model="student.speciality"><br>
+                <label for="5">Tên đầy đủ:             </label><input id="5" type="text" ng-model="student.fullName"><br>
+                <label for="6">Ngày sinh:              </label><input id="6" type="text" ng-model="student.dob"><br>
+                <label for="7">Điểm trung bình:        </label><input id="7" type="number" ng-model="student.meanGrade"><br>
+                <label for="8">Năm dự kiến tốt nghiệp: </label><input id="8" type="text" ng-model="student.gradYear"><br>
+                <label for="9">Email:                  </label><input id="9" type="text" ng-model="student.email"><br>
+                <label for="10">Địa chỉ:                </label><input id="10" type="text" ng-model="student.address"><br>
+                <label for="11">Ma so giang vien:       </label><input id="11" type="text" ng-model="student.teacherId"><br>
+                <button type="sumbit" value="Tạo sinh viên" ng-click="taoStudent()">Tạo sinh viên</button>
+            </form>
+            </div>
+            <div ng-hide="hienLecturer">
+                <form>
+                    <label for="21">Tên đầy đủ: </label><input type="text" id="21" ng-model="lecturer.fullName"><br>
+                    <label for="22">Khoa: </label><input type="text" id="22" ng-model="lecturer.faculty"><br>
+                    <label for="23">Email VNU: </label><input type="text" id="23" ng-model="lecturer.emailVNU"><br>
+                    <label for="24">Gmail: </label><input type="text" id="24" ng-model="lecturer.gmail"><br>
+                    <label for="25">Số điện thoại</label><input type="text" id="25" ng-model="lecturer.phone"><br>
+                    <label for="26">Ghi chú: </label><input type="text" id="26" ng-model="lecturer.note"><br>
+                    <label for="27">Password</label><input type="text" id="27" ng-model="lecturer.password"><br>
+                    <input type="submit" value="Tạo giảng viên" ng-click="taoLecturer()">
+                </form>
+            </div>
+            <div ng-hide="hienPartner">
+                <form >
+                    <label for="31">Tên đăng nhập: </label><input type ="text"  id="31" ng-model="partner.username"><br>
+                    <label for="32">Mật khẩu: </label><input type = "text" id="32" ng-model="partner.password"><br>
+                    <label for="33">Email: </label><input type = "text" id="33" ng-model="partner.email"><br>
+                    <label for="34">Số điện thoại: </label><input type = "text" id="34" ng-model="partner.phone"><br>
+                    <label for="35">Mô tả: </label><input type = "text" id="35" ng-model="partner.description"><br>
+                    <label for="36">Địa chỉ</label><input type = "text" id="36" ng-model="partner.address"><br>
+                    <input type="submit" value="Tạo đối tác" ng-click="taoPartner()">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

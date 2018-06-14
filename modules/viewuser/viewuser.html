@@ -1,0 +1,148 @@
+<div>
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-lg-2">
+                <a href="" ng-click="showStudent()">View Student</a><br>
+                <a href="" ng-click="showLecturer()">View Lecturer</a><br>
+                <a href="" ng-click="showPartner()">View Partner</a>
+            </div>
+            <div class="col-xs-5 col-sm-5 col-lg-5">
+                <div ng-hide="hienStudent">
+                <h2>Danh sach sinh vien</h2>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ho va ten</th>
+                            <th>Ma sinh vien</th>
+                            <th>Xoa sinh vien</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="aStudent in listStudent" ng-class="{current: selected == $index}">
+                            <td>
+                                {{aStudent.id}}
+                            </td>
+                            <td>
+                                <a href="" ng-click="setSelected($index); showlist1(); setId(aStudent.id)">{{aStudent.fullName}}</a>
+                            </td>
+                            <td>{{aStudent.mssv}}</td>
+                            <td>
+                                <button ng-click="xoaStudent(aStudent.id)">Xoa</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+
+                <div ng-hide="hienLecturer">
+                    <h2>Danh sach giang vien</h2>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ho va ten</th>
+                                <th>Mail VNU</th>
+                                <th>Xoa Giang Vien</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="aStudent in listLecturer" ng-class="{current: selected == $index}">
+                                <td>
+                                    {{aStudent.id}}
+                                </td>
+                                <td>
+                                    <a href="" ng-click="setSelected($index); showlist2(); setId(aStudent.id)">{{aStudent.fullName}}</a>
+                                </td>
+                                <td>{{aStudent.emailVNU}}</td>
+                                <td>
+                                    <button ng-click="xoaLecturer(aStudent.id)">Xoa</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div ng-hide="hienPartner">
+                    <h2>Danh sach doi tac</h2>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ten dang nhap</th>
+                                <th>Email</th>
+                                <th>Xoa Doi tac</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="aStudent in listPartner" ng-class="{current: selected == $index}">
+                                <td>
+                                    {{aStudent.id}}
+                                </td>
+                                <td>
+                                    <a href="" ng-click="setSelected($index); showlist3(); setId(aStudent.id)">{{aStudent.username}}</a>
+                                </td>
+                                <td>{{aStudent.email}}</td>
+                                <td>
+                                    <button ng-click="xoaPartner(aStudent.id)">Xoa</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-lg-4">
+                <div ng-hide="hienStudent">
+                <h2>Thông tin Doi tac</h2>
+                <div ng-show="hien1">
+                    <ul>
+
+                    </ul>
+
+                </div>
+                </div>
+                <div ng-hide="hienLecturer">
+                    <h2>Thông tin chi tiet:</h2>
+                    <div ng-show="hien2">
+                        <ul>
+                            <li>Id: {{listScore[selected].id}}</li>
+                            <li>Username: {{listScore[selected].username}}</li>
+                            <li>Mail: {{listScore[selected].email}}</li>
+                            <li>Lien he: {{listScore[selected].phone}}</li>
+                            <li>Ghi chu: {{listScore[selected].description}}</li>
+                            <li>Dia chi: {{listScore[selected].address}</li>
+                            <li>Mat khau: {{listScore[selected].password}}</li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div ng-hide="hienPartner">
+                    <h2>Thông tin chi tiet:</h2>
+                    <div ng-show="hien3">
+                        <ul>
+                            <li>Id: {{listScore[selected].id}}</li>
+                            <li>Ten day du: {{listScore[selected].fullName}}</li>
+                            <li>Khoa: {{listScore[selected].faculty}}</li>
+                            <li>Mail VNU: {{listScore[selected].emailVNU}}</li>
+                            <li>Gmail: {{listScore[selected].gmail}}</li>
+                            <li>Lien he: {{listScore[selected].phone}}</li>
+                            <li>Ghi chu: {{listScore[selected].note}}</li>
+                            <li>Mat khau: {{listScore[selected].password}}</li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

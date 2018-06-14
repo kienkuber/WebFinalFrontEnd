@@ -6,20 +6,26 @@ angular.module('loginModule')
             "password":""
         } ;
 
+        $rootScope.showCreateJob =false;
         $rootScope.showLogin = false;
-        $rootScope.showSetScore = false;
-        $rootScope.showViewScore = false;
-        $rootScope.showTeacher = false;
+        $rootScope.showCreate = false;
+        $rootScope.showUpdateInfo = false;
+        $rootScope.showSeason = false;
         $rootScope.showLogOut = false;
+        $rootScope.showViewUser = false;
+
+        $rootScope.role;
 
         $rootScope.dangxuat = function () {
             loginService.logout(localStorage.getItem("auth-token"))
                 .then(function (response) {
                     $rootScope.showLogin = false;
-                    $rootScope.showSetScore = false;
-                    $rootScope.showViewScore = false;
-                    $rootScope.showTeacher = false;
+                    $rootScope.showCreate = false;
+                    $rootScope.showUpdateInfo = false;
+                    $rootScope.showSeason = false;
                     $rootScope.showLogOut = false;
+                    $rootScope.showViewUser = false;
+                    $rootScope.showCreateJob =false;
                 })
             };
 
@@ -31,23 +37,41 @@ angular.module('loginModule')
 
                     localStorage.setItem("auth-token", response.data.token);
                     if(response.data.role == "STUDENT"){
+                        $rootScope.role = "STUDENT";
                         $rootScope.showLogin = true;
-                        $rootScope.showSetScore = true;
+                        $rootScope.showCreate = false;
                         $rootScope.showLogOut = true;
+                        $rootScope.showViewUser = false;
                         $state.go("setscore");
                     }
-                    else if(response.data.role == "MONITOR"){
+                    else if(response.data.role == "LECTURER"){
+                        $rootScope.role = "LECTURER";
                         $rootScope.showLogin = true;
-                        $rootScope.showSetScore = true;
-                        $rootScope.showViewScore = true;
+                        $rootScope.showCreate = false;
+                        $rootScope.showUpdateInfo = true;
                         $rootScope.showLogOut = true;
-                        $state.go("viewscore");
+                        $rootScope.showViewUser = false;
+                        $rootScope.showCreateJob = true;
+                        $state.go("createjob");
                     }
-                    else if(response.data.role == "TEACHER"){
+                    else if(response.data.role == "PARTNER"){
+                        $rootScope.role = "PARTNER";
                         $rootScope.showLogin = true;
-                        $rootScope.showTeacher = true;
+                        $rootScope.showUpdateInfo = false;
                         $rootScope.showLogOut = true;
-                        $state.go("teacher");
+                        $rootScope.showViewUser = false;
+                        $rootScope.showCreateJob = true;
+                        $state.go("createjob");
+                    }
+                    else if(response.data.role == "ADMIN"){
+                        $rootScope.Role = "ADMIN";
+                        $rootScope.showLogin = true;
+                        $rootScope.showCreate = true;
+                        $rootScope.showUpdateInfo = false;
+                        $rootScope.showSeason = true;
+                        $rootScope.showLogOut = true;
+                        $rootScope.showViewUser = true;
+                        $state.go("createuser");
                     }
                 },function (err) {
                     alert("Dang nhap that bai, xin hay dang nhap lai")
