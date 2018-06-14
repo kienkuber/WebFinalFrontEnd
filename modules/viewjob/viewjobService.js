@@ -1,22 +1,31 @@
 //Nhớ thêm tên service vào controller
 angular.module('viewjobModule')
-    .service('viewjobService', function () {
+    .service('viewjobService', function ($http) {
         var service = {
-            cong2so: cc,
-            accessible: checkAccessible
+            viewJob: viewJob,
+            registryJob: registryJob
         };
         return service;
 
-        function cc(a, b) {
-            return a + b;
+        function viewJob(token) {
+            return $http({
+                url : 'http://localhost:8080/view/alljobs',
+                method: 'GET',
+                headers:{
+                    "auth-token":token
+                }
+            })
+
         }
 
-        function checkAccessible(username, password) {
-            var accessible = false;
-            if ("admin" == username && "1" == password) accessible = true;
-            return accessible
-
-
+        function registryJob(token, jobId) {
+            return $http({
+                url : 'http://localhost:8080/student/registry/' + jobId,
+                method: 'GET',
+                headers:{
+                    "auth-token":token
+                }
+            })
         }
     });
     

@@ -6,7 +6,15 @@ angular.module('viewjobModule', ['ui.router',])
             .state('viewjob', { //Định nghĩa 1 state
                 url: '/viewjob',     //Khai báo URl hiển thị
                 templateUrl: 'modules/viewjob/viewjob.html', //Đường dẫn view: modules/about/about.html
-                controller: 'viewjobController'   //Khai báo Controller phụ vụ state này
+                controller: 'viewjobController',   //Khai báo Controller phụ vụ state này
+                resolve: {
+                    initialJob: ['viewjobService', function (viewjobService) {
+                        return viewjobService.viewJob(localStorage.getItem("auth-token"))
+                            .then(function (response) {
+                                return response.data;
+                            })
+                    }]
+                }
             })
 
 

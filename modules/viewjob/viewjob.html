@@ -1,10 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 <body>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-xs-7 col-sm-6 col-lg-8">
+            <h2>Danh sach cong viec</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ten viec</th>
+                        <th>Con lai</th>
+                        <th>Dang ky </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="aStudent in listJob" ng-class="{current: selected == $index}">
+                        <td>
+                            {{aStudent.id}}
+                        </td>
+                        <td>
+                            <a href="" ng-click="setSelected($index); showjob(); setId(aStudent.id)">{{aStudent.jobName}}</a>
+                        </td>
+                        <td>{{aStudent.jobLeft}}</td>
+                        <td><Button ng-click="registry(aStudent.id)">Dang ky</Button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
+        </div>
+        <div class="col-xs-5 col-sm-6 col-lg-4">
+            <h2>Thông tin cong viec</h2>
+            <div ng-show="hien">
+                <ul>
+                    <li>: {{listJob[selected].jobName}}</li>
+                    <li>: {{listJob[selected].jobReq}}</li>
+                    <li>: {{listJob[selected].jobAvailable}}</li>
+                    <li>: {{listJob[selected].jobLeft}}</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>

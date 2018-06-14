@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-xs-7 col-sm-6 col-lg-8">
+            <h2>Danh sach sinh vien dang ky: </h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ten viec</th>
+                        <th>Ten sinh vien: </th>
+                        <th>Chap nhan </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="aStudent in studentJobList" ng-class="{current: selected == $index}">
+                        <td>
+                            {{aStudent.jobId}}
+                        </td>
+                        <td>{{aStudent.jobName}}</td>
+                        <td>
+                            <a href="" ng-click="setSelected($index); showjob(); setId(aStudent.id)">{{aStudent.studentDTO.fullName}}</a>
+                        </td>
+
+                        <td><Button ng-click="accept(aStudent)">Chap nhan</Button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-xs-5 col-sm-6 col-lg-4">
+            <h2>Thông tin sinh vien</h2>
+            <div ng-show="hien">
+                <ul>
+                    <li>: {{studentJobList[selected].studentDTO.mssv}}</li>
+                    <li>: {{studentJobList[selected].studentDTO.classroom}}</li>
+                    <li>: {{studentJobList[selected].studentDTO.gen}}</li>
+                    <li>: {{studentJobList[selected].studentDTO.speciality}}</li>
+                    <li>: {{studentJobList[selected].studentDTO.fullName }}</li>
+                    <li>: {{studentJobList[selected].studentDTO.email}}</li>
+                    <li>: {{studentJobList[selected].studentDTO.meanGrade}}</li>
+                    <li>: {{studentJobList[selected].studentDTO.address}}</li>
+                    <li>: {{studentJobList[selected].studentDTO.gradYear}}</li>
+                    <li>: {{studentJobList[selected].studentDTO.teacherId}}</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

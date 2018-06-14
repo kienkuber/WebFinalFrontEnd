@@ -13,6 +13,8 @@ angular.module('loginModule')
         $rootScope.showSeason = false;
         $rootScope.showLogOut = false;
         $rootScope.showViewUser = false;
+        $rootScope.showViewJob =false;
+        $rootScope.showManageJob =false;
 
         $rootScope.role;
 
@@ -26,6 +28,8 @@ angular.module('loginModule')
                     $rootScope.showLogOut = false;
                     $rootScope.showViewUser = false;
                     $rootScope.showCreateJob =false;
+                    $rootScope.showViewJob =false;
+                    $rootScope.showManageJob =false;
                 })
             };
 
@@ -42,6 +46,7 @@ angular.module('loginModule')
                         $rootScope.showCreate = false;
                         $rootScope.showLogOut = true;
                         $rootScope.showViewUser = false;
+                        $rootScope.showViewJob =true;
                         $state.go("setscore");
                     }
                     else if(response.data.role == "LECTURER"){
@@ -52,6 +57,7 @@ angular.module('loginModule')
                         $rootScope.showLogOut = true;
                         $rootScope.showViewUser = false;
                         $rootScope.showCreateJob = true;
+                        $rootScope.showManageJob =true;
                         $state.go("createjob");
                     }
                     else if(response.data.role == "PARTNER"){
@@ -61,6 +67,7 @@ angular.module('loginModule')
                         $rootScope.showLogOut = true;
                         $rootScope.showViewUser = false;
                         $rootScope.showCreateJob = true;
+                        $rootScope.showManageJob =true;
                         $state.go("createjob");
                     }
                     else if(response.data.role == "ADMIN"){

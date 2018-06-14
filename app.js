@@ -3,7 +3,8 @@ angular.module('app', ['ui.router',
     'createuserModule',
     'viewuserModule',
     'createjobModule',
-    'viewjobModule'
+    'viewjobModule',
+    'managejobModule'
     ])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/home')
